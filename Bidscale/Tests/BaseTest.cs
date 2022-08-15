@@ -17,23 +17,13 @@ namespace Bidscale.Tests
         [SetUp]
         public void Setup()
         {
-            Console.WriteLine("hello world - setup");
-
             driver = Driver.GetInstance();
             driver.Navigate().GoToUrl(config.Url);
-            //Assert.Pass();
 
             //Login
             var loginPage = new LoginPage(driver);
             loginPage.Login(config.Username, config.Password);
         }
-
-        //  [Test]
-        //  public void DoTheNeedful()
-        //  {
-        //driver.Navigate().GoToUrl("https://www.google.com");
-        //Assert.Pass();
-        // }
 
         [TearDown]
         public void Teardown()

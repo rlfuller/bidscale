@@ -10,8 +10,8 @@ namespace Bidscale.PageObjects
         [FindsBy(How = How.CssSelector, Using = "#header_container .title")]
         private IWebElement PageTitleBar { get; set; }
 
-        [FindsBy(How = How.Id, Using = "finish")]
-        public IWebElement FinishButton { get; set; }
+        [FindsBy(How = How.CssSelector, Using = "#checkout_complete_container > .complete-header")]
+        public IWebElement OrderConfirmed { get; set; }
 
         public ConfirmationPage(IWebDriver driver)
         {
@@ -22,6 +22,11 @@ namespace Bidscale.PageObjects
         public string GetPageTitle()
         {
             return PageTitleBar.Text;
+        }
+
+        public string GetConfirmationText()
+        {
+            return OrderConfirmed.Text;
         }
         
     }

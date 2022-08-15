@@ -1,10 +1,6 @@
-﻿using System;
-using System.Text;
-
+﻿using System.Text;
 using System.Reflection;
-using System.IO;
 using Newtonsoft.Json;
-using JsonSerializer = Newtonsoft.Json.JsonSerializer;
 
 namespace Bidscale.Utilities
 {
@@ -39,12 +35,11 @@ namespace Bidscale.Utilities
         static public Config Config
         {
             get {
-                Console.WriteLine(EnvironmentName);
+                //Console.WriteLine(EnvironmentName);
                 var assembly = Assembly.GetExecutingAssembly();
                 var resourceStream = assembly.GetManifestResourceStream(
                     $"Bidscale.EnvironmentData.{EnvironmentName}.json"
                 );
-                Console.WriteLine("rs", resourceStream);
 
                 if (resourceStream is null)
                 {

@@ -3,7 +3,7 @@ using Bidscale.Utilities;
 
 namespace Bidscale.Tests
 {
-    public class Test : BaseTest
+    public class AddProductToCartandCheckout : BaseTest
     {
         [Test]
         public void HappyPathTest()
@@ -61,10 +61,15 @@ namespace Bidscale.Tests
 
             checkoutPage.FinishButton.Click();
 
+            var confirmationPage = new ConfirmationPage(driver);
             expectedPageTitle = "CHECKOUT: COMPLETE!";
-            actualPageTitle = checkoutPage.GetPageTitle().Trim();
+            actualPageTitle = confirmationPage.GetPageTitle().Trim();
 
             Assert.That(actualPageTitle, Is.EqualTo(expectedPageTitle), $"Page is not correct. Should be {expectedPageTitle}, but is {actualPageTitle}");
+
+            string actualOrderConfirmed = confirmationPage.GetConfirmationText().Trim();
+            string expectedOrderConfirmed = "THANK YOU FOR YOUR ORDER";
+            Assert.That(actualOrderConfirmed, Is.EqualTo(expectedOrderConfirmed), $"Confirmation Message is incorrect: was {actualOrderConfirmed}, but should be {expectedOrderConfirmed}");
 
         }
     }
