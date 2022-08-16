@@ -17,7 +17,7 @@ namespace Bidscale.Utilities
             }
 
             string? browser = Environment.GetEnvironmentVariable("AutomationBrowser");
-            if (browser == null)
+            if (browser is null)
             {
                 browser = "";
             }

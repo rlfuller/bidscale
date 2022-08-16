@@ -3,7 +3,7 @@ using Bidscale.Utilities;
 
 namespace Bidscale.Tests
 {
-    public class AddProductToCartandCheckout : BaseTest
+    public class ProductCheckoutTest : BaseTest
     {
         [Test]
         public void HappyPathTest()
@@ -11,9 +11,7 @@ namespace Bidscale.Tests
             //verify we are on the products page after logging in 
             var productPage = new ProductsPage(driver);
 
-            string expectedPageTitle = "PRODUCTS";
-            string actualPageTitle = productPage.GetPageTitle();
-            Assert.That(actualPageTitle, Is.EqualTo(expectedPageTitle), $"Page is not correct. Should be {expectedPageTitle}, but is {actualPageTitle}");
+            CheckPageTitle("PRODUCTS", productPage);
 
             //click the 'add to cart' button on the first item on the products page
             //productPage.ClickProductAddToCartButton(0);
@@ -30,18 +28,13 @@ namespace Bidscale.Tests
             //verify we are on the Shopping Cart Page
             var shoppingCartPage = new ShoppingCartPage(driver);
 
-            expectedPageTitle = "YOUR CART";
-            actualPageTitle = shoppingCartPage.GetPageTitle();
-            Assert.That(actualPageTitle, Is.EqualTo(expectedPageTitle), $"Page is not correct. Should be {expectedPageTitle}, but is {actualPageTitle}");
-
+            CheckPageTitle("YOUR CART", shoppingCartPage);
             shoppingCartPage.CheckoutButton.Click();
 
             //verify we are on the Information Page
             var checkoutInformationPage = new CheckoutInformationPage(driver);
 
-            expectedPageTitle = "CHECKOUT: YOUR INFORMATION";
-            actualPageTitle = shoppingCartPage.GetPageTitle().Trim();
-            Assert.That(actualPageTitle, Is.EqualTo(expectedPageTitle), $"Page is not correct. Should be {expectedPageTitle}, but is {actualPageTitle}");
+            CheckPageTitle("CHECKOUT: YOUR INFORMATION", checkoutInformationPage);
 
             //fill out form
             checkoutInformationPage.FillOutInformation(
@@ -55,22 +48,23 @@ namespace Bidscale.Tests
            
             var checkoutPage = new CheckoutPage(driver);
 
-            expectedPageTitle = "CHECKOUT: OVERVIEW";
-            actualPageTitle = checkoutPage.GetPageTitle().Trim();
-            Assert.That(actualPageTitle, Is.EqualTo(expectedPageTitle), $"Page is not correct. Should be {expectedPageTitle}, but is {actualPageTitle}");
+            CheckPageTitle("CHECKOUT: OVERVIEW", checkoutPage);
 
             checkoutPage.FinishButton.Click();
 
             var confirmationPage = new ConfirmationPage(driver);
-            expectedPageTitle = "CHECKOUT: COMPLETE!";
-            actualPageTitle = confirmationPage.GetPageTitle().Trim();
-
-            Assert.That(actualPageTitle, Is.EqualTo(expectedPageTitle), $"Page is not correct. Should be {expectedPageTitle}, but is {actualPageTitle}");
-
+            CheckPageTitle("CHECKOUT: COMPLETE!", confirmationPage);
+                        
             string actualOrderConfirmed = confirmationPage.GetConfirmationText().Trim();
             string expectedOrderConfirmed = "THANK YOU FOR YOUR ORDER";
             Assert.That(actualOrderConfirmed, Is.EqualTo(expectedOrderConfirmed), $"Confirmation Message is incorrect: was {actualOrderConfirmed}, but should be {expectedOrderConfirmed}");
 
+        }
+
+        public void CheckPageTitle(string expected, IPageTitle page)
+        {
+            string actualPageTitle = page.GetPageTitle().Trim();
+            Assert.That(actualPageTitle, Is.EqualTo(expected), $"Page is not correct. Should be {expected}, but is {actualPageTitle}");
         }
     }
 }

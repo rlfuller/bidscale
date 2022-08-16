@@ -1,14 +1,9 @@
 ﻿using OpenQA.Selenium;
 using SeleniumExtras.PageObjects;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Bidscale.PageObjects
 {
-    internal class ShoppingCartPage
+    internal class ShoppingCartPage : IPageTitle
     {
         IWebDriver driver;
 

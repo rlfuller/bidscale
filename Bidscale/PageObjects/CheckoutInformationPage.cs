@@ -3,7 +3,7 @@ using SeleniumExtras.PageObjects;
 
 namespace Bidscale.PageObjects
 {
-    internal class CheckoutInformationPage
+    internal class CheckoutInformationPage : IPageTitle
     {
         IWebDriver driver;
 
@@ -43,10 +43,6 @@ namespace Bidscale.PageObjects
             return this;
         }
 
-        
-
-  
-        
     }
 }
 

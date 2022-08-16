@@ -1,15 +1,10 @@
 ﻿using Bidscale.Utilities;
 using OpenQA.Selenium;
 using SeleniumExtras.PageObjects;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Bidscale.PageObjects
 {
-    internal class ProductsPage
+    internal class ProductsPage : IPageTitle
     {
         IWebDriver driver;
 
@@ -52,8 +47,6 @@ namespace Bidscale.PageObjects
             int randomIndex = Common.GetRandom(0, AllProducts.Count);
             return ClickProductAddToCartButton(randomIndex);
         }
-
-
 
         public string GetShoppingCartBadgeNumber()
         {

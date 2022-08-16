@@ -25,7 +25,7 @@ If you are not using Visual Studio, you can run this repository in Visual Studio
 
 ### Executing program
 
-1. Find the AddProductToCartandCheckout test under the Tests folder
+1. Find the ProductCheckoutTest test class under the Tests folder
 2. Right-click on the [Test] annotation
 3. Select Run Tests
 * Alternatively, you can select Test then Run All Tests from the top menu in Visual Studio. 

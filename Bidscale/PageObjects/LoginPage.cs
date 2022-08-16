@@ -23,7 +23,6 @@ namespace Bidscale.PageObjects
 
         }
 
-
         public void Login(string user, string pass)
         {
             Username.SendKeys(user);
