@@ -13,6 +13,9 @@ namespace Bidscale.PageObjects
         [FindsBy(How = How.Id, Using = "checkout")]
         public IWebElement CheckoutButton { get; set; }
 
+        [FindsBy(How = How.ClassName, Using = "inventory_item_name")]
+        public IWebElement FirstInventoryItem { get; set; }
+
         public ShoppingCartPage(IWebDriver driver)
         {
             this.driver = driver;
@@ -22,6 +25,11 @@ namespace Bidscale.PageObjects
         public string GetPageTitle()
         {
             return PageTitleBar.Text;
+        }
+
+        public string GetItem()
+        {
+            return FirstInventoryItem.Text;
         }
 
     }

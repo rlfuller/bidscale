@@ -48,6 +48,12 @@ namespace Bidscale.PageObjects
             return ClickProductAddToCartButton(randomIndex);
         }
 
+        public string GetItemName()
+        {
+            int index = Common.GetRandom(0, AllProducts.Count);
+            return AllProducts[index].FindElement(By.ClassName("inventory_item_name")).Text;
+        }
+
         public string GetShoppingCartBadgeNumber()
         {
             return ShoppingCartBadge.GetAttribute("textContent");

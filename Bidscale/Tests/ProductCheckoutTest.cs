@@ -1,5 +1,4 @@
 using Bidscale.PageObjects;
-using Bidscale.Utilities;
 
 namespace Bidscale.Tests
 {
@@ -17,6 +16,8 @@ namespace Bidscale.Tests
             //productPage.ClickProductAddToCartButton(0);
             productPage.ClickRandomProductAddToCartButton();
 
+            string itemName = productPage.GetItemName();
+
             //confirm that item is in cart
             string expectedBadge = "1";
             string actualBadge = productPage.GetShoppingCartBadgeNumber();
@@ -29,6 +30,11 @@ namespace Bidscale.Tests
             var shoppingCartPage = new ShoppingCartPage(driver);
 
             CheckPageTitle("YOUR CART", shoppingCartPage);
+
+            string actualItemInCart = shoppingCartPage.GetItem();
+            //verify item is correct
+            Assert.That(actualItemInCart, Is.EqualTo(itemName), $"Item in cart is not correct. Should be {itemName}, but is {actualItemInCart}");
+
             shoppingCartPage.CheckoutButton.Click();
 
             //verify we are on the Information Page
