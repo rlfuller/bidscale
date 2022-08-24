@@ -1,4 +1,4 @@
-﻿namespace Bidscale
+﻿namespace Swaglabs
 {
     internal class Constants
     {

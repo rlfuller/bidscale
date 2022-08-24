@@ -1,7 +1,7 @@
 ﻿using OpenQA.Selenium;
 using SeleniumExtras.PageObjects;
 
-namespace Bidscale.PageObjects
+namespace Swaglabs.PageObjects
 {
     internal class CheckoutInformationPage : IPageTitle
     {

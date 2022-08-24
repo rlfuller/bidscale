@@ -3,7 +3,7 @@ using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Edge;
 using OpenQA.Selenium.Firefox;
 
-namespace Bidscale.Utilities
+namespace Swaglabs.Utilities
 {
     public class Driver
     {

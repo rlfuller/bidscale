@@ -1,6 +1,6 @@
-using Bidscale.PageObjects;
+using Swaglabs.PageObjects;
 
-namespace Bidscale.Tests
+namespace Swaglabs.Tests
 {
     public class ProductCheckoutTest : BaseTest
     {

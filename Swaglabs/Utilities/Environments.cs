@@ -2,7 +2,7 @@
 using System.Reflection;
 using Newtonsoft.Json;
 
-namespace Bidscale.Utilities
+namespace Swaglabs.Utilities
 {
 #nullable disable warnings
     public class Config
@@ -38,7 +38,7 @@ namespace Bidscale.Utilities
                 //Console.WriteLine(EnvironmentName);
                 var assembly = Assembly.GetExecutingAssembly();
                 var resourceStream = assembly.GetManifestResourceStream(
-                    $"Bidscale.EnvironmentData.{EnvironmentName}.json"
+                    $"Swaglabs.EnvironmentData.{EnvironmentName}.json"
                 );
 
                 if (resourceStream is null)

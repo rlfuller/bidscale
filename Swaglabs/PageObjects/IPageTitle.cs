@@ -1,4 +1,4 @@
-﻿namespace Bidscale.PageObjects
+﻿namespace Swaglabs.PageObjects
 {
     public interface IPageTitle
     {

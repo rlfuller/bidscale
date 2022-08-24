@@ -1,4 +1,4 @@
-﻿namespace Bidscale.Utilities
+﻿namespace Swaglabs.Utilities
 {
     public class Common
     {

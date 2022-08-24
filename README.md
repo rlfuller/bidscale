@@ -1,4 +1,4 @@
-# Bidscale Quality Assurance Case
+# SwagLabs Quality Assurance Case
 
 A simple C# test framework. 
 

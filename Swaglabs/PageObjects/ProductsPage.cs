@@ -1,8 +1,8 @@
-﻿using Bidscale.Utilities;
+﻿using Swaglabs.Utilities;
 using OpenQA.Selenium;
 using SeleniumExtras.PageObjects;
 
-namespace Bidscale.PageObjects
+namespace Swaglabs.PageObjects
 {
     internal class ProductsPage : IPageTitle
     {

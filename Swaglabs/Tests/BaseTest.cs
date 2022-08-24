@@ -1,8 +1,8 @@
-﻿using Bidscale.PageObjects;
-using Bidscale.Utilities;
+﻿using Swaglabs.PageObjects;
+using Swaglabs.Utilities;
 using OpenQA.Selenium;
 
-namespace Bidscale.Tests
+namespace Swaglabs.Tests
 {
     public class BaseTest
     {

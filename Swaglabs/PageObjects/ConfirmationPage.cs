@@ -1,19 +1,19 @@
 ﻿using OpenQA.Selenium;
 using SeleniumExtras.PageObjects;
 
-namespace Bidscale.PageObjects
+namespace Swaglabs.PageObjects
 {
-    internal class CheckoutPage : IPageTitle
+    internal class ConfirmationPage : IPageTitle
     {
         IWebDriver driver;
 
         [FindsBy(How = How.CssSelector, Using = "#header_container .title")]
         private IWebElement PageTitleBar { get; set; }
 
-        [FindsBy(How = How.Id, Using = "finish")]
-        public IWebElement FinishButton { get; set; }
+        [FindsBy(How = How.CssSelector, Using = "#checkout_complete_container > .complete-header")]
+        public IWebElement OrderConfirmed { get; set; }
 
-        public CheckoutPage(IWebDriver driver)
+        public ConfirmationPage(IWebDriver driver)
         {
             this.driver = driver;
             PageFactory.InitElements(driver, this);
@@ -22,6 +22,11 @@ namespace Bidscale.PageObjects
         public string GetPageTitle()
         {
             return PageTitleBar.Text;
+        }
+
+        public string GetConfirmationText()
+        {
+            return OrderConfirmed.Text;
         }
         
     }
